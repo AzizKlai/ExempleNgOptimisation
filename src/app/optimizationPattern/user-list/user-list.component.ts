@@ -1,4 +1,4 @@
-import {Component, Input, Output, EventEmitter} from '@angular/core';
+import {Component, Input, Output, EventEmitter, ChangeDetectionStrategy} from '@angular/core';
 import {User} from "../users.service";
 import memo from 'memo-decorator';
 
@@ -22,6 +22,8 @@ export class UserListComponent {
   
   fibo(n: number): number { 
     const fib = this.fibonnaci(n);
+    console.log(fib)
+
     return fib;
   }
 
@@ -32,7 +34,6 @@ export class UserListComponent {
     }
     
     const f=this.fibonnaci(n-1) + this.fibonnaci(n-2);
-    console.log(f)
     return f
   }
 }

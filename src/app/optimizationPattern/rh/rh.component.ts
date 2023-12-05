@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import {ApplicationRef, Component, ElementRef, NgZone, OnInit, Renderer2, ViewChild} from '@angular/core';
 import {User, UsersService} from "../users.service";
 import * as ChartJs from 'chart.js/auto';
 @Component({
@@ -7,16 +7,19 @@ import * as ChartJs from 'chart.js/auto';
   styleUrls: ['./rh.component.css']
 })
 export class RhComponent implements OnInit {
+  @ViewChild('chart') divChart!:ElementRef
   oddUsers: User[];
   evenUsers: User[];
   chart: any;
-  constructor(private userService: UsersService) {
+  constructor(private userService: UsersService,
+    ar:ApplicationRef,private renderer: Renderer2,private zone:NgZone) {
     this.oddUsers = this.userService.getOddOrEven(true);
     this.evenUsers = this.userService.getOddOrEven();
   }
 
   ngOnInit(): void {
-        this.createChart();
+    this.zone.runOutsideAngular(()=>{this.createChart();})
+        
     }
   addUser(list: User[], newUser: string) {
     this.userService.addUser(list, newUser);
