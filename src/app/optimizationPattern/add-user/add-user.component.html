@@ -1,0 +1,8 @@
+<form  class="row" style="margin-bottom: 2%;" #addform="ngForm" (ngSubmit)="addUser()" >
+    <div class="col-9">
+      <input type="text" class="form-control" [(ngModel)]="userFullName" required   name="userFullName">
+    </div>
+    <div class="col-3">
+      <button class="btn btn-primary" [disabled]="addform.invalid" type="submit">add user</button>
+    </div>
+</form>

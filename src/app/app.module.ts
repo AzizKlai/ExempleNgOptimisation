@@ -19,6 +19,10 @@ import { ParentComponent } from './components/parent/parent.component';
 import { FilsComponent } from './components/fils/fils.component';
 import { RhComponent } from './optimizationPattern/rh/rh.component';
 import { UserListComponent } from './optimizationPattern/user-list/user-list.component';
+import { AddUserComponent } from './optimizationPattern/add-user/add-user.component';
+import { ListItemsComponent } from './optimizationPattern/list-items/list-items.component';
+import { FibonacciPipe } from './pipes/fibonacci.pipe';
+import { ChartComponent } from './optimizationPattern/chart/chart.component';
 
 @NgModule({
   declarations: [
@@ -34,7 +38,11 @@ import { UserListComponent } from './optimizationPattern/user-list/user-list.com
     ParentComponent,
     FilsComponent,
     RhComponent,
-    UserListComponent
+    UserListComponent,
+    AddUserComponent,
+    ListItemsComponent,
+    FibonacciPipe,
+    ChartComponent
   ],
   imports: [
     BrowserModule,
