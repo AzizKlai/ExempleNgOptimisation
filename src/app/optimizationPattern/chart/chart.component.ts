@@ -17,14 +17,15 @@ export class ChartComponent implements OnInit {
   ngOnInit(): void {
     this.zone.runOutsideAngular(()=>{
       this.createChart();})
-      
     }
     ngOnChanges(changes: SimpleChanges) {
-      this.createChart()
+      if(this.chart)
+      {this.chart.data.datasets[0].data= [this.oddCnt,this.evenCnt] 
+      this.chart.update()}
+
   }
   createChart(){
-    if(this.chart)
-    this.chart.destroy()
+ 
     const data = [
       { users: 'Workers', count: this.oddCnt },
       { users: 'Boss', count: this.evenCnt },

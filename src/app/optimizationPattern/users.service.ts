@@ -21,11 +21,9 @@ export class UsersService {
     return this.users.filter((user) => !!(user.age % 2) == isOdd );
   }
   addUser(list: User[], name: string):User[] {
-    const newlist=[...list]
-    newlist.unshift({
-      name,
-      age: faker.datatype.number({min: 18, max: 30})
-    });
+    const newlist=[{ name,
+        age: faker.datatype.number({min: 18, max: 30})
+      },...list]
     return newlist
   }
 }

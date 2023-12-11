@@ -9,7 +9,7 @@ export class FibonacciPipe implements PipeTransform {
   //purefunction
   @memo()
   fibonacci(value:number): number{
-    //console.log(value) 
+    console.log(value) 
     if(value==1 || value==0)
     return 1
     else
